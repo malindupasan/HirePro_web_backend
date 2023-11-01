@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const bcrypt = require('bcrypt')
 
-class ServiceProvider {
+class Customer {
   constructor({ id, contact, name, email, nic,points, password_hash,bank_details,category }) {
     this.id = id;
     this.contact = contact;
@@ -16,23 +16,23 @@ class ServiceProvider {
   }
 
  
- 
- 
-  static async getNoofServiceProviders() {
+  static async countCustomers() {
+    const query = 'select count(id) as customerCount from customer';
+    // const values = [id];
 
-    const query = 'select count(id) as serviceprovidercount from "ServiceProvider"';
    
 
     try {
       const result = await db.query(query);
       //   console.log(result.rows[0]);
       return result.rows[0];
-    } catch (error) {
-      console.log(error);
-      
-    }
 
+    } catch (error) {
+      throw error;
+    }
   }
+ 
+
 
 
 
@@ -40,4 +40,4 @@ class ServiceProvider {
   // Add other static methods for CRUD operations as needed
 }
 
-module.exports = ServiceProvider;
+module.exports = Customer;
