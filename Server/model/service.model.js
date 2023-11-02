@@ -18,7 +18,7 @@ class Service {
 
     static async getrevenue() {
         const query = 'SELECT SUM(b.amount) AS total_amount FROM "Service" s INNER JOIN "Bid" b ON s.id = b."serviceId" WHERE s.status = \'completed\'';
-        // const values = [id];
+        // const values = [id];er
 
 
 
