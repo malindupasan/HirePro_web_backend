@@ -1,0 +1,24 @@
+GET http://localhost:3512/getCategoryRequests
+
+###
+POST http://localhost:3512/setCategory
+Content-Type: application/json
+
+{
+    "providerid": 15,
+    "category": "Test Category",
+    "categoryid": 10
+}
+
+###
+POST http://localhost:3512/rejectCategory
+Content-Type: application/json
+
+{
+    "providerid": 15,
+    "category": "Test Category",
+    "categoryid": 10
+}
+
+###
+GET http://localhost:3512/getSp

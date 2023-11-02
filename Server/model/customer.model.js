@@ -17,7 +17,7 @@ class Customer {
 
  
   static async countCustomers() {
-    const query = 'select count(id) as customerCount from customer';
+    const query = 'select count(id) as customerCount from "Customer"';
     // const values = [id];
 
    
