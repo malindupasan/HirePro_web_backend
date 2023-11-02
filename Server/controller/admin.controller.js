@@ -1,6 +1,7 @@
 const CustomerModel = require('../model/customer.model')
 const ServiceProviderModel = require('../model/serviceprovider.model')
 const ServiceModel = require('../model/service.model')
+const CSRModel = require('../model/csr.model')
 
 
 
@@ -120,6 +121,90 @@ exports.tasksByMonth=async (req, res, next) => {
        
      
         // console.log(result1);
+        res.status(200).json(result1);
+
+     
+    } catch (error) {
+        console.error(error);
+    }
+
+
+}
+
+
+
+exports.addCsr=async (req, res, next) => {
+
+    try {
+        // const authHeader = req.headers.authorization;
+        // const {serviceproviderid}=req.body;
+
+        // const customerid = await CustomerServices.getIdFromToken(authHeader);
+        // if(!customerid){
+        //     res.send(404).json({message:"No access"});
+        // }
+
+        const {name,email,phone,password}=req.body;
+       const result1= await CSRModel.addcsr(name,email,phone,password);
+       
+       
+     
+        console.log(result1);
+        res.status(200).json(result1);
+
+     
+    } catch (error) {
+        console.error(error);
+    }
+
+
+}
+
+
+exports.getCSR=async (req, res, next) => {
+
+    try {
+        // const authHeader = req.headers.authorization;
+        // const {serviceproviderid}=req.body;
+
+        // const customerid = await CustomerServices.getIdFromToken(authHeader);
+        // if(!customerid){
+        //     res.send(404).json({message:"No access"});
+        // }
+
+       const result1= await CSRModel.getcsr();
+       
+       
+     
+        console.log(result1);
+        res.status(200).json(result1);
+
+     
+    } catch (error) {
+        console.error(error);
+    }
+
+
+}
+
+
+
+exports.login=async (req, res, next) => {
+
+    try {
+        // const authHeader = req.headers.authorization;
+        // const {serviceproviderid}=req.body;
+
+        // const customerid = await CustomerServices.getIdFromToken(authHeader);
+        // if(!customerid){
+        //     res.send(404).json({message:"No access"});
+        // }
+
+       const result1= await CSRModel.getcsr();
+       
+       
+     
+        console.log(result1);
         res.status(200).json(result1);
 
      
